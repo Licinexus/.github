@@ -1,10 +1,8 @@
 <div align="center">
 
-<img src="./profile/banner.jpg" alt="Licinexus — IA pra licitação pública" width="100%" />
+<img src="./logo-white.png" alt="Licinexus" width="320" />
 
-<br/>
-
-# Licinexus
+<br/><br/>
 
 **Inteligência artificial pra licitação pública brasileira.**
 
