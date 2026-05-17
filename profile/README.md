@@ -4,112 +4,192 @@
 
 <br/><br/>
 
-**Inteligência artificial pra licitação pública brasileira.**
+# **Vertical AI for Brazilian public procurement**
 
-[![Site](https://img.shields.io/badge/licinexus.com.br-2968ed?style=for-the-badge&logo=googlechrome&logoColor=white)](https://licinexus.com.br)
-[![npm](https://img.shields.io/npm/v/@licinexusbr/mcp?style=for-the-badge&logo=npm&label=%40licinexusbr%2Fmcp&color=00d4ff)](https://www.npmjs.com/package/@licinexusbr/mcp)
-[![Downloads](https://img.shields.io/npm/dw/@licinexusbr/mcp?style=for-the-badge&logo=npm&color=10b981)](https://www.npmjs.com/package/@licinexusbr/mcp)
+We build proprietary AI models on top of the **R$ 1,5 trillion/year** that the Brazilian public sector spends. Open data is commodity — the moat is the intelligence we put on top of it.
+
+<br/>
+
+[![Website](https://img.shields.io/badge/licinexus.com.br-050816?style=for-the-badge&logo=googlechrome&logoColor=00d4ff)](https://licinexus.com.br)
+[![npm](https://img.shields.io/npm/v/@licinexusbr/mcp?style=for-the-badge&logo=npm&label=%40licinexusbr%2Fmcp&color=cb3837)](https://www.npmjs.com/package/@licinexusbr/mcp)
+[![Downloads](https://img.shields.io/npm/dw/@licinexusbr/mcp?style=for-the-badge&logo=npm&label=downloads%2Fweek&color=10b981)](https://www.npmjs.com/package/@licinexusbr/mcp)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/company/licinexus)
 
 </div>
 
 ---
 
-## O que a gente faz
+## 🎯 The thesis
 
-O setor público brasileiro compra **R$ 1,5 trilhão por ano**. O dado é público, mas vive esquartejado em mais de 1.000 APIs federais, estaduais e municipais, cada uma com seu schema, seu uptime e seu jeito de quebrar.
+Brazil runs the largest public procurement market in Latin America. The data is public by law — but lives shattered across **1,000+ federal, state and municipal APIs**, each with its own schema, uptime and breakage. Generic LLMs don't understand CATMAT/CATSER, can't price a winning bid, don't know which clauses raise TCU red flags.
 
-A Licinexus existe pra resolver isso de duas formas:
+We close that gap with two layers:
 
-1. **Acesso aos dados** — open source, de graça, pra que qualquer fornecedor, jornalista, pesquisador ou agente público consiga ler o que já é dele por lei.
-2. **Inteligência sobre os dados** — uma família de modelos de IA proprietários treinados em 5 anos de compras públicas brasileiras, que viram nosso produto pago pra fornecedores que querem ganhar mais editais.
+1. **Open access to the data** — free and open source, so any supplier, journalist, researcher or public agent can read what's already theirs by law.
+2. **A proprietary vertical AI stack** — 7 models trained on 5 years of Brazilian public procurement data, sold to companies that win bids for a living.
 
-> _"Comoditizamos o que qualquer concorrente copiaria em 3 meses pra manter o foco e o lucro no que leva 3 anos de IA e dados acumulados."_
+> _"We commoditize what any competitor could rebuild in 3 months, to stay focused on what takes 3 years."_
+
+This is *commoditizing your complement* — the playbook Joel Spolsky described, that worked for IBM with Linux and for Google with Android.
+
+---
+
+## 🤖 Our vertical AI stack
+
+Seven proprietary models, purpose-built for Brazilian public procurement. Each is trained on production data the open market cannot reproduce.
+
+| # | Model | Task | Stack | Status |
+|---|---|---|---|---|
+| 1 | **Catálogo** | Classifies any bid item into CATMAT/CATSER (official codes). Outperforms generic LLMs by understanding regulatory taxonomy. | Bi-encoder + cross-encoder reranker · fine-tuned on **848k pairs** | 🟢 **PROD** |
+| 2 | **Previsor** | Predicts winning price and win-probability per bid, before the auction. | LightGBM with quantile regression · trained on **1.48M outcomes** | 🟢 **PROD** |
+| 3 | **OCR** | Extracts text from edital PDFs and attachments at 1/800 of the cost of cloud OCR. | Tesseract pipeline · spot fleet · **US$ 60 vs US$ 48k** for 32M pages | 🟢 **PROD** |
+| 4 | **Leitor** | Turns any edital PDF into structured JSON with 60+ fields (modality, deadlines, requirements, values). | Qwen2.5-7B fine-tune · gold dataset of **2.16M PNCP processes** | 🟡 **BUILD** |
+| 5 | **Reader-Full** | Reads the full bid document end-to-end and produces a complete analysis report. | Qwen2.5 long-context fine-tune · multi-stage RAG | 🟡 **BUILD** |
+| 6 | **Auditor** | Detects directional clauses, restrictive requirements, jurisprudence risk and TCU red flags. | LLM fine-tune on **60-80k** TCU acórdãos + súmulas | 🟡 **BUILD** |
+| 7 | **STT** | Internal speech-to-text for SDR calls and customer meetings, replacing paid third-party APIs. | Whisper-Large-V3 self-hosted | 🟡 **BUILD** |
+
+**Full family overview** → [licinexus.com.br/ai](https://licinexus.com.br/ai)
 
 ---
 
 ## 🛠️ Open source
 
-### [`@licinexusbr/mcp`](https://github.com/Licinexus/licinexus-mcp) — primeiro MCP server brasileiro de licitação pública
+### [`@licinexusbr/mcp`](https://github.com/Licinexus/licinexus-mcp) · first Brazilian MCP server for public procurement
 
-Conecta qualquer LLM (Claude, ChatGPT, Cursor, Cline) a PNCP, BrasilAPI, Receita Federal e IBGE em uma linha:
+Conecta any LLM (Claude Desktop, Cursor, Cline, ChatGPT) to the National Procurement Portal (PNCP), BrasilAPI, Receita Federal and IBGE — in one command:
 
 ```bash
-npx @licinexusbr/mcp
+npx -y @licinexusbr/mcp
 ```
 
-18 ferramentas pra pesquisar editais, contratos, fornecedores e análise temporal/agregada — direto do terminal do seu agente de IA.
+**18 tools · 4 prompts · MIT license · live in the [Official MCP Registry](https://registry.modelcontextprotocol.io).**
 
-[![Stars](https://img.shields.io/github/stars/Licinexus/licinexus-mcp?style=social)](https://github.com/Licinexus/licinexus-mcp/stargazers)
-[![Forks](https://img.shields.io/github/forks/Licinexus/licinexus-mcp?style=social)](https://github.com/Licinexus/licinexus-mcp/network/members)
-[![Issues](https://img.shields.io/github/issues/Licinexus/licinexus-mcp)](https://github.com/Licinexus/licinexus-mcp/issues)
-
----
-
-## 🧠 Família de IA — análises proprietárias
-
-Tudo isso fica fechado, é o que vende. **18 análises de IA**, agrupadas pelo momento em que entram na sua decisão:
-
-### 🎯 Antes de disputar — _decidir SE vale a pena_
-
-| Análise | O que faz por você |
-|---|---|
-| 🧮 **IA de viabilidade** | Diz se o edital faz sentido pra sua empresa — custo de entrada, margem possível e se você bate os requisitos |
-| 🎯 **IA de match + gate CNAE** | Só edital que casa com sua atividade e seu histórico chega no seu feed |
-| 📊 **IA de score de chance** | Nota de 0 a 100 por edital, antes de você gastar 1 hora lendo |
-| 🥊 **IA de análise de concorrência** | Quem ganhou histórico aí, em que faixa de preço, com que frequência e taxa de vitória |
-| 🏛️ **IA de inteligência do órgão** | Perfil do comprador, previsibilidade de calendário, histórico de pagamento e risco institucional |
-| ⚖️ **IA auditora jurídica + TCU** | Riscos legais, jurisprudência do TCU e cláusulas-armadilha detectadas em segundos |
-
-### 💰 Na hora de disputar — _decidir QUANTO cobrar_
-
-| Análise | O que faz por você |
-|---|---|
-| 💵 **IA previsora de preço-ganhador** | Você não chuta mais o lance — IA prevê o preço que vai vencer com base em milhões de contratos similares |
-| 📈 **IA de inteligência de preço** | Preço justo em 3 dimensões: temporal (sazonalidade), regional (sua UF) e por órgão |
-| 📐 **IA de análise de margem** | Preço-teto, preço de equilíbrio e quanto realmente sobra — antes de você apertar o botão |
-| 🚨 **IA de risco TCU/compliance** | Alerta de superfaturamento, fragmentação suspeita, concentração de fornecedor — pra você não entrar em edital marcado |
-
-### 📄 Documentos — _parar de ler PDF_
-
-| Análise | O que faz por você |
-|---|---|
-| 📖 **IA leitora de edital** | 60+ campos estruturados extraídos de qualquer PDF de edital — prazos, garantias, contatos, recursos |
-| 🔍 **IA classificadora CATMAT/CATSER** | Entende o que cada item de edital realmente é, melhor que qualquer LLM genérico (modelo proprietário) |
-| ✅ **IA de checklist de habilitação** | Extrai todos os requisitos do edital e cruza com seus documentos — você sabe o que falta antes de submeter |
-
-### 🤝 Depois de ganhar — _cuidar do contrato_
-
-| Análise | O que faz por você |
-|---|---|
-| 💚 **IA de saúde do contrato** | Quanto tempo resta, valor vs mercado atual, risco de não-pagamento — monitoramento contínuo |
-| ⚠️ **IA de vícios contratuais** | Detecta cláusulas que costumam virar briga depois (ANEEL, ARSAE, multas, garantias) |
-| 💸 **IA de inteligência financeira** | Health score de empenhos com projeção de fluxo de caixa — você sabe quando o dinheiro vai entrar |
-
-### 🕵️ Inteligência de mercado & due diligence
-
-| Análise | O que faz por você |
-|---|---|
-| 🔎 **IA de prospecção de fornecedores** | Busca empresas por CNAE, UF, porte, capital social e idade — pra achar parceiros, concorrentes ou leads B2B no universo de quem vende pro governo |
-| 🕸️ **IA de rede societária + due diligence** | Mapeia sócios, vínculos entre CNPJ, sanções de inidoneidade e histórico em licitações — você descobre antes se a empresa é fantasma, tem dono em comum com concorrente, ou está bloqueada de licitar |
-
-E mais 2 modelos internos (orquestração de agentes + SDR) e 1 modelo B2G em roadmap (monitoramento de irregularidades). [Ver família completa →](https://licinexus.com.br/ai)
+[![Stars](https://img.shields.io/github/stars/Licinexus/licinexus-mcp?style=flat-square&logo=github&color=2968ed&label=stars)](https://github.com/Licinexus/licinexus-mcp/stargazers)
+[![Forks](https://img.shields.io/github/forks/Licinexus/licinexus-mcp?style=flat-square&logo=github&color=2968ed&label=forks)](https://github.com/Licinexus/licinexus-mcp/network/members)
+[![Issues](https://img.shields.io/github/issues/Licinexus/licinexus-mcp?style=flat-square&logo=github&color=10b981&label=open%20issues)](https://github.com/Licinexus/licinexus-mcp/issues)
+[![Last commit](https://img.shields.io/github/last-commit/Licinexus/licinexus-mcp?style=flat-square&color=2968ed)](https://github.com/Licinexus/licinexus-mcp/commits/main)
 
 ---
 
-## 🤝 Como contribuir
+## 📊 Premium analyses (proprietary product)
 
-- **Devs**: a gente abre `good first issue` toda semana no [licinexus-mcp](https://github.com/Licinexus/licinexus-mcp/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22). Bilíngue (PT/EN), CI sólido, DCO sign-off requerido.
-- **Fornecedores**: testem o produto pago em [licinexus.com.br](https://licinexus.com.br) — tem plano gratuito permanente.
-- **Pesquisadores / jornalistas**: o MCP server é a forma mais rápida de cruzar PNCP com TCU, Receita e IBGE pra investigação ou paper acadêmico.
-- **Agentes públicos**: estamos abertos a parcerias B2G — fale com [licitacao@licinexus.com.br](mailto:licitacao@licinexus.com.br).
+18 AI-powered analyses available in the Licinexus paid product, organized by where they enter your decision flow:
+
+<details open>
+<summary><b>🎯 Before bidding</b> — <i>decide IF the bid is worth it</i></summary>
+
+| Analysis | What it does |
+|---|---|
+| **AI viability** | Whether the bid makes sense for your company — entry cost, achievable margin, requirement fit |
+| **AI match + CNAE gate** | Only bids that match your activity and history reach your feed |
+| **AI win-chance score** | Score 0-100 per bid, before you spend an hour reading |
+| **AI competitor analysis** | Who won historically there, in what price range, with what frequency and win rate |
+| **AI institutional intelligence** | Buyer profile, calendar predictability, payment history, institutional risk |
+| **AI legal auditor + TCU** | Legal risks, TCU jurisprudence, trap clauses surfaced in seconds |
+
+</details>
+
+<details>
+<summary><b>💰 During bidding</b> — <i>decide HOW MUCH to charge</i></summary>
+
+| Analysis | What it does |
+|---|---|
+| **AI winning-price predictor** | No more guessing the bid — model predicts the price that will win |
+| **AI price intelligence** | Fair price across 3 dimensions: temporal (seasonality), regional (your state), institutional (per buyer) |
+| **AI margin analysis** | Ceiling price, breakeven price, real margin — before you submit |
+| **AI TCU/compliance risk** | Alerts for overpricing, suspect fragmentation, vendor concentration |
+
+</details>
+
+<details>
+<summary><b>📄 Documents</b> — <i>stop reading PDFs</i></summary>
+
+| Analysis | What it does |
+|---|---|
+| **AI edital reader** | 60+ structured fields extracted from any bid PDF |
+| **AI CATMAT/CATSER classifier** | Understands each item better than any generic LLM (proprietary model) |
+| **AI habilitation checklist** | Extracts all bid requirements and cross-references with your documents |
+
+</details>
+
+<details>
+<summary><b>🤝 After winning</b> — <i>protect the contract</i></summary>
+
+| Analysis | What it does |
+|---|---|
+| **AI contract health** | Time remaining, current vs market value, payment risk — continuous monitoring |
+| **AI contract vices** | Detects clauses that historically led to litigation |
+| **AI financial intelligence** | Health score per empenho with cash-flow projection |
+
+</details>
+
+<details>
+<summary><b>🕵️ Market intelligence & due diligence</b></summary>
+
+| Analysis | What it does |
+|---|---|
+| **AI supplier prospecting** | Search companies by CNAE, state, size, capital and age — find partners, competitors or B2B leads |
+| **AI shareholder network + due diligence** | Maps shareholders, common ownership across CNPJs, inidoneity sanctions and bidding history |
+
+</details>
+
+---
+
+## 📐 By the numbers
+
+<table>
+<tr>
+<td align="center"><b>R$ 1,5T</b><br/><sub>annual public procurement market</sub></td>
+<td align="center"><b>1,000+</b><br/><sub>data sources unified</sub></td>
+<td align="center"><b>200k+</b><br/><sub>bids indexed</sub></td>
+<td align="center"><b>3,4M</b><br/><sub>items classified</sub></td>
+<td align="center"><b>R$ 247B</b><br/><sub>opportunities mapped</sub></td>
+</tr>
+</table>
+
+---
+
+## 🤝 Work with us
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🧑‍💻 Developers
+Brazilian-Portuguese govtech is an under-served niche with real production data. We open `good first issue`s weekly in [`licinexus-mcp`](https://github.com/Licinexus/licinexus-mcp/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22). Bilingual (PT/EN), strong CI, DCO sign-off required.
+
+</td>
+<td width="50%" valign="top">
+
+### 🏢 Suppliers
+Free permanent tier — no credit card. Test the proprietary analyses on real bids at **[licinexus.com.br](https://licinexus.com.br)**.
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🔬 Researchers & journalists
+The MCP server is the fastest way to cross-reference PNCP with TCU, Receita Federal and IBGE for investigations or academic papers.
+
+</td>
+<td width="50%" valign="top">
+
+### 🏛️ Public agencies (B2G)
+We are open to partnerships with TCEs, CGUs and procurement bodies for irregularity monitoring and audit automation. → **[licitacao@licinexus.com.br](mailto:licitacao@licinexus.com.br)**
+
+</td>
+</tr>
+</table>
 
 ---
 
 <div align="center">
 
-**Open source o que é commodity. Inteligência onde é diferencial.**
+### **Open source what's commodity. Intelligence where the moat lives.**
 
-[licinexus.com.br](https://licinexus.com.br) · [npm](https://npmjs.com/package/@licinexusbr/mcp) · [LinkedIn](https://linkedin.com/company/licinexus) · licitacao@licinexus.com.br
+[licinexus.com.br](https://licinexus.com.br) · [npm](https://www.npmjs.com/package/@licinexusbr/mcp) · [LinkedIn](https://linkedin.com/company/licinexus) · [licitacao@licinexus.com.br](mailto:licitacao@licinexus.com.br)
+
+<sub>Founded in Juiz de Fora, MG · Brazil 🇧🇷</sub>
 
 </div>
