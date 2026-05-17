@@ -48,18 +48,45 @@ npx @licinexusbr/mcp
 
 ---
 
-## 🧠 Família de modelos de IA proprietários
+## 🧠 Família de IA — análises proprietárias
 
-Tudo isso fica fechado, é o que vende:
+Tudo isso fica fechado, é o que vende. **16 análises de IA**, agrupadas pelo momento em que entram na sua decisão:
 
-| Modelo | O que faz pro fornecedor |
+### 🎯 Antes de disputar — _decidir SE vale a pena_
+
+| Análise | O que faz por você |
 |---|---|
-| 🔍 **Catálogo** | Entende CATMAT/CATSER melhor que qualquer LLM genérico — diz com precisão o que cada item de edital realmente é |
-| 🎯 **Match IA + gate CNAE** | Filtra automaticamente só o que casa com sua empresa e seu histórico |
-| 💰 **Previsor** | Estima o preço-ganhador antes do certame — você não chuta mais o lance |
-| ⚖️ **Auditor** | Detecta riscos jurídicos, jurisprudência TCU e cláusulas-armadilha em segundos |
-| 📊 **Scoring de chance** | Nota de 0 a 100 pra cada edital, antes de você decidir disputar |
-| 📖 **Leitor** | Extrai 60+ campos estruturados de qualquer PDF de edital |
+| 🧮 **IA de viabilidade** | Diz se o edital faz sentido pra sua empresa — custo de entrada, margem possível e se você bate os requisitos |
+| 🎯 **IA de match + gate CNAE** | Só edital que casa com sua atividade e seu histórico chega no seu feed |
+| 📊 **IA de score de chance** | Nota de 0 a 100 por edital, antes de você gastar 1 hora lendo |
+| 🥊 **IA de análise de concorrência** | Quem ganhou histórico aí, em que faixa de preço, com que frequência e taxa de vitória |
+| 🏛️ **IA de inteligência do órgão** | Perfil do comprador, previsibilidade de calendário, histórico de pagamento e risco institucional |
+| ⚖️ **IA auditora jurídica + TCU** | Riscos legais, jurisprudência do TCU e cláusulas-armadilha detectadas em segundos |
+
+### 💰 Na hora de disputar — _decidir QUANTO cobrar_
+
+| Análise | O que faz por você |
+|---|---|
+| 💵 **IA previsora de preço-ganhador** | Você não chuta mais o lance — IA prevê o preço que vai vencer com base em milhões de contratos similares |
+| 📈 **IA de inteligência de preço** | Preço justo em 3 dimensões: temporal (sazonalidade), regional (sua UF) e por órgão |
+| 📐 **IA de análise de margem** | Preço-teto, preço de equilíbrio e quanto realmente sobra — antes de você apertar o botão |
+| 🚨 **IA de risco TCU/compliance** | Alerta de superfaturamento, fragmentação suspeita, concentração de fornecedor — pra você não entrar em edital marcado |
+
+### 📄 Documentos — _parar de ler PDF_
+
+| Análise | O que faz por você |
+|---|---|
+| 📖 **IA leitora de edital** | 60+ campos estruturados extraídos de qualquer PDF de edital — prazos, garantias, contatos, recursos |
+| 🔍 **IA classificadora CATMAT/CATSER** | Entende o que cada item de edital realmente é, melhor que qualquer LLM genérico (modelo proprietário) |
+| ✅ **IA de checklist de habilitação** | Extrai todos os requisitos do edital e cruza com seus documentos — você sabe o que falta antes de submeter |
+
+### 🤝 Depois de ganhar — _cuidar do contrato_
+
+| Análise | O que faz por você |
+|---|---|
+| 💚 **IA de saúde do contrato** | Quanto tempo resta, valor vs mercado atual, risco de não-pagamento — monitoramento contínuo |
+| ⚠️ **IA de vícios contratuais** | Detecta cláusulas que costumam virar briga depois (ANEEL, ARSAE, multas, garantias) |
+| 💸 **IA de inteligência financeira** | Health score de empenhos com projeção de fluxo de caixa — você sabe quando o dinheiro vai entrar |
 
 E mais 2 modelos internos (orquestração de agentes + SDR) e 1 modelo B2G em roadmap (monitoramento de irregularidades). [Ver família completa →](https://licinexus.com.br/ai)
 
