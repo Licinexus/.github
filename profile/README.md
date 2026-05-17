@@ -70,7 +70,7 @@ E mais 2 modelos internos (orquestração de agentes + SDR) e 1 modelo B2G em ro
 - **Devs**: a gente abre `good first issue` toda semana no [licinexus-mcp](https://github.com/Licinexus/licinexus-mcp/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22). Bilíngue (PT/EN), CI sólido, DCO sign-off requerido.
 - **Fornecedores**: testem o produto pago em [licinexus.com.br](https://licinexus.com.br) — tem plano gratuito permanente.
 - **Pesquisadores / jornalistas**: o MCP server é a forma mais rápida de cruzar PNCP com TCU, Receita e IBGE pra investigação ou paper acadêmico.
-- **Agentes públicos**: estamos abertos a parcerias B2G — fale com [alex@licinexus.com.br](mailto:alex@licinexus.com.br).
+- **Agentes públicos**: estamos abertos a parcerias B2G — fale com [licitacao@licinexus.com.br](mailto:licitacao@licinexus.com.br).
 
 ---
 
@@ -78,6 +78,6 @@ E mais 2 modelos internos (orquestração de agentes + SDR) e 1 modelo B2G em ro
 
 **Open source o que é commodity. Inteligência onde é diferencial.**
 
-[licinexus.com.br](https://licinexus.com.br) · [npm](https://npmjs.com/package/@licinexusbr/mcp) · [LinkedIn](https://linkedin.com/company/licinexus) · alex@licinexus.com.br
+[licinexus.com.br](https://licinexus.com.br) · [npm](https://npmjs.com/package/@licinexusbr/mcp) · [LinkedIn](https://linkedin.com/company/licinexus) · licitacao@licinexus.com.br
 
 </div>
