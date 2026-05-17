@@ -36,17 +36,19 @@ This is *commoditizing your complement* — the playbook Joel Spolsky described,
 
 ## 🤖 Our vertical AI stack
 
-Seven proprietary models, purpose-built for Brazilian public procurement. Each is trained on production data the open market cannot reproduce.
+Seven proprietary models, purpose-built for Brazilian public procurement. Each one is **continuously retrained as new data arrives daily** from PNCP, Receita Federal, TCU/TCEs and user-feedback loops in the platform — the training set never freezes.
 
-| # | Model | Task | Stack | Status |
+| # | Model | Trained to do | Data foundation (live volumes in our DB) | Status |
 |---|---|---|---|---|
-| 1 | **Catálogo** | Classifies any bid item into CATMAT/CATSER (official codes). Outperforms generic LLMs by understanding regulatory taxonomy. | Bi-encoder + cross-encoder reranker · fine-tuned on **848k pairs** | 🟢 **PROD** |
-| 2 | **Previsor** | Predicts winning price and win-probability per bid, before the auction. | LightGBM with quantile regression · trained on **1.48M outcomes** | 🟢 **PROD** |
-| 3 | **OCR** | Extracts text from edital PDFs and attachments at 1/800 of the cost of cloud OCR. | Tesseract pipeline · spot fleet · **US$ 60 vs US$ 48k** for 32M pages | 🟢 **PROD** |
-| 4 | **Leitor** | Turns any edital PDF into structured JSON with 60+ fields (modality, deadlines, requirements, values). | Qwen2.5-7B fine-tune · gold dataset of **2.16M PNCP processes** | 🟡 **BUILD** |
-| 5 | **Reader-Full** | Reads the full bid document end-to-end and produces a complete analysis report. | Qwen2.5 long-context fine-tune · multi-stage RAG | 🟡 **BUILD** |
-| 6 | **Auditor** | Detects directional clauses, restrictive requirements, jurisprudence risk and TCU red flags. | LLM fine-tune on **60-80k** TCU acórdãos + súmulas | 🟡 **BUILD** |
-| 7 | **STT** | Internal speech-to-text for SDR calls and customer meetings, replacing paid third-party APIs. | Whisper-Large-V3 self-hosted | 🟡 **BUILD** |
+| 1 | **Catálogo** | Classify any bid item into the official CATMAT/CATSER taxonomy | 848k curated item → code pairs · 6,49M unified price records · 4,17M historical items · continuously growing | 🟢 **PROD** |
+| 2 | **Previsor** | Predict the winning price and the win probability of a bid before the auction opens | 1,49M historical bid outcomes with real winners · daily PNCP refresh · user-feedback on closed bids | 🟢 **PROD** |
+| 3 | **OCR** | Extract clean text from edital PDFs and attachments in Brazilian Portuguese | 2,40M edital PDFs in our pipeline (410k already OCRed, growing daily) | 🟢 **PROD** |
+| 4 | **Leitor** | Turn any edital PDF into structured data (modality, deadlines, requirements, values, etc) | 2,18M PNCP processes with gold-standard structured fields · 1,01M contracts · 722k atas de registro de preço | 🟡 **BUILD** |
+| 5 | **Reader-Full** | Read the full bid document end-to-end and produce a complete viability analysis | Long-context training on full edital documents after OCR · grows with the OCR pipeline | 🟡 **BUILD** |
+| 6 | **Auditor** | Detect directional clauses, restrictive requirements and TCU/TCE jurisprudence risk | **10,2M legal documents** across TCU + TCEs (PE, RJ, RO, RS, SC, ES) + Súmulas STF/STJ + CGU + AGU + LexML + DJEN/CNJ + Lei 14.133/2021 + Lei 8.666/1993 + DOU decretos · continuously expanding | 🟡 **BUILD** |
+| 7 | **STT** | Transcribe internal calls (SDR, customer meetings, voice notes) in Brazilian Portuguese | Self-hosted speech model tuned for PT-BR business calls · feedback loop from internal usage | 🟡 **BUILD** |
+
+A deep CNPJ graph underpins every model: **65,7M companies + 26,8M shareholders** ingested from Receita Federal, plus **701k curated suppliers** with full bidding history.
 
 **Full family overview** → [licinexus.com.br/ai](https://licinexus.com.br/ai)
 
