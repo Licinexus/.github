@@ -50,7 +50,7 @@ npx @licinexusbr/mcp
 
 ## 🧠 Família de IA — análises proprietárias
 
-Tudo isso fica fechado, é o que vende. **16 análises de IA**, agrupadas pelo momento em que entram na sua decisão:
+Tudo isso fica fechado, é o que vende. **18 análises de IA**, agrupadas pelo momento em que entram na sua decisão:
 
 ### 🎯 Antes de disputar — _decidir SE vale a pena_
 
@@ -87,6 +87,13 @@ Tudo isso fica fechado, é o que vende. **16 análises de IA**, agrupadas pelo m
 | 💚 **IA de saúde do contrato** | Quanto tempo resta, valor vs mercado atual, risco de não-pagamento — monitoramento contínuo |
 | ⚠️ **IA de vícios contratuais** | Detecta cláusulas que costumam virar briga depois (ANEEL, ARSAE, multas, garantias) |
 | 💸 **IA de inteligência financeira** | Health score de empenhos com projeção de fluxo de caixa — você sabe quando o dinheiro vai entrar |
+
+### 🕵️ Inteligência de mercado & due diligence
+
+| Análise | O que faz por você |
+|---|---|
+| 🔎 **IA de prospecção de fornecedores** | Busca empresas por CNAE, UF, porte, capital social e idade — pra achar parceiros, concorrentes ou leads B2B no universo de quem vende pro governo |
+| 🕸️ **IA de rede societária + due diligence** | Mapeia sócios, vínculos entre CNPJ, sanções de inidoneidade e histórico em licitações — você descobre antes se a empresa é fantasma, tem dono em comum com concorrente, ou está bloqueada de licitar |
 
 E mais 2 modelos internos (orquestração de agentes + SDR) e 1 modelo B2G em roadmap (monitoramento de irregularidades). [Ver família completa →](https://licinexus.com.br/ai)
 
